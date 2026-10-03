@@ -11,19 +11,24 @@
   main { width: min(92vw, 420px); background: #fff; border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: 0 8px 24px -14px rgba(0,0,0,.4); }
   h1 { font-size: 22px; margin: 0 0 2px; letter-spacing: -0.02em; }
   p { margin: 0 0 18px; color: #4a5d53; font-size: 14px; }
-  a.b { display: block; padding: 14px; border-radius: 12px; font-weight: 800; text-decoration: none; margin-top: 10px; }
-  a.kakao { background: #fee500; color: #191919; }
-  a.naver { background: #03c75a; color: #fff; }
-  a.tmap { background: #ef4136; color: #fff; }
+  .row { display: flex; justify-content: center; gap: 22px; margin-top: 8px; }
+  a.b { display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; color: #15241b; font-size: 13px; font-weight: 700; }
+  a.b i { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; }
+  a.kakao i { background: #fee500; color: #3a1d1d; }
+  a.naver i { background: #03c75a; color: #fff; }
+  a.tmap i { background: #ef4136; color: #fff; }
+  svg { width: 30px; height: 30px; }
 </style>
 </head>
 <body>
 <main>
   <h1 id="name">식당</h1>
   <p id="area"></p>
-  <a class="b kakao" id="kakao" href="#">카카오맵으로 보기</a>
-  <a class="b naver" id="naver" href="#">네이버지도로 보기</a>
-  <a class="b tmap" id="tmap" href="#">티맵으로 길찾기</a>
+  <div class="row">
+    <a class="b kakao" id="kakao" href="#"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></i>카카오맵</a>
+    <a class="b naver" id="naver" href="#"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></i>네이버지도</a>
+    <a class="b tmap" id="tmap" href="#"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 4.5 21.3 12 17.5l7.5 3.8z"/></svg></i>티맵</a>
+  </div>
 </main>
 <script>
   // 사용법: r.html?n=식당이름&a=시군(선택)&k=카카오맵장소번호&x=경도&y=위도
