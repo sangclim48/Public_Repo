@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>티맵으로 길찾기</title>
+<meta property="og:title" content="티맵으로 길찾기">
+<meta property="og:description" content="누르면 티맵에서 이 식당으로 가는 경로가 설정됩니다.">
+<style>
+  body { margin: 0; font: 16px/1.5 system-ui, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #eef3f0; color: #15241b; display: grid; place-items: center; min-height: 100vh; }
+  main { width: min(92vw, 420px); background: #fff; border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: 0 8px 24px -14px rgba(0,0,0,.4); }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p { margin: 6px 0 18px; color: #4a5d53; }
+  a.go { display: block; padding: 14px; border-radius: 12px; background: #ef4136; color: #fff; font-weight: 800; text-decoration: none; }
+  a.store { display: block; margin-top: 12px; color: #4a5d53; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1 id="name">목적지</h1>
+  <p>티맵 앱이 열리지 않으면 아래 버튼을 눌러 주세요.</p>
+  <a class="go" id="open" href="#">티맵에서 길찾기</a>
+  <a class="store" id="store" href="#">티맵 앱 설치하기</a>
+</main>
+<script>
+  // 사용법: tmap.html?name=식당이름&x=경도&y=위도
+  var q = new URLSearchParams(location.search);
+  var name = q.get('name') || '목적지', x = q.get('x'), y = q.get('y');
+  document.getElementById('name').textContent = name;
+  var scheme = 'tmap://route?goalname=' + encodeURIComponent(name) + '&goalx=' + encodeURIComponent(x) + '&goaly=' + encodeURIComponent(y);
+  var ua = navigator.userAgent, android = /Android/i.test(ua), ios = /iPhone|iPad/i.test(ua);
+  var pkg = 'com.skt.tmap.ku';
+  // 안드로이드는 intent 주소로 열면, 앱이 없을 때 스토어로 보낸다
+  var link = android
+    ? 'intent://route?goalname=' + encodeURIComponent(name) + '&goalx=' + encodeURIComponent(x) + '&goaly=' + encodeURIComponent(y) + '#Intent;scheme=tmap;package=' + pkg + ';end'
+    : scheme;
+  document.getElementById('open').href = link;
+  document.getElementById('store').href = android ? 'market://details?id=' + pkg : ios ? 'https://apps.apple.com/kr/app/id431589174' : 'https://www.tmapmobility.com/';
+  if (x && y && (android || ios)) setTimeout(function () { location.href = link; }, 300);
+</script>
+</body>
+</html>
