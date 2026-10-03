@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이동 중…</title>
+<style>body{margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;font:16px system-ui,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#4a5d53;background:#eef3f0}a{color:#028a3f;font-weight:800}</style>
+</head>
+<body>
+<p id="msg">이동 중…</p>
+<script>
+  // 카카오톡 카드 버튼용 중간 주소. 카카오링크는 등록된 도메인의 주소만 버튼에 걸 수 있어서, 이 도메인 하나로 받아 원하는 지도로 보낸다.
+  // 사용법: go.html?t=naver&n=식당이름&a=시군   /   go.html?t=kakao&k=카카오맵장소번호
+  var q = new URLSearchParams(location.search), t = q.get('t');
+  var n = q.get('n') || '', a = q.get('a') || '', k = q.get('k');
+  var to = '';
+  if (t === 'naver') to = 'https://map.naver.com/p/search/' + encodeURIComponent((a + ' ' + n).trim());
+  else if (t === 'kakao' && k) to = 'https://place.map.kakao.com/' + encodeURIComponent(k);
+  if (to) {
+    document.getElementById('msg').innerHTML = '열리지 않으면 <a href="' + to + '">여기를 누르세요</a>';
+    location.replace(to);
+  } else {
+    document.getElementById('msg').textContent = '잘못된 주소입니다.';
+  }
+</script>
+</body>
+</html>
