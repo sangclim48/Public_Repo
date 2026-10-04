@@ -13,6 +13,9 @@
   .sub { color: #4a5d53; margin: 0 0 20px; font-size: 15px; }
   a.dl { display: block; padding: 16px; border-radius: 14px; background: #03c75a; color: #fff; text-align: center; font-size: 18px; font-weight: 800; text-decoration: none; }
   a.folder { display: block; margin-top: 10px; padding: 12px; border-radius: 14px; background: #eef3f0; color: #15241b; text-align: center; font-size: 15px; font-weight: 800; text-decoration: none; }
+  a.folder.off { opacity: .45; pointer-events: none; }
+  a.folder.on { background: #03c75a; color: #fff; }
+  a.dl.busy { background: #6fd8a0; pointer-events: none; }
   .hint { text-align: center; font-size: 12px; color: #7b8c83; margin-top: 4px; }
   .size { text-align: center; font-size: 13px; color: #7b8c83; margin-top: 6px; }
   ol { margin: 22px 0 0; padding-left: 22px; font-size: 15px; }
@@ -33,10 +36,10 @@
 <main>
   <h1>낭만 골프</h1>
   <p class="sub">골프 티타임 가격 비교 · 근처 식당 찾기</p>
-  <a class="dl" href="https://sangclim48.github.io/Public_Repo/%EB%82%AD%EB%A7%8C%EA%B3%A8%ED%94%84.apk">앱 내려받기 (안드로이드)</a>
+  <a class="dl" id="dl" href="https://sangclim48.github.io/Public_Repo/%EB%82%AD%EB%A7%8C%EA%B3%A8%ED%94%84.apk">앱 내려받기 (안드로이드)</a>
   <div class="size">약 8MB</div>
-  <a class="folder" id="folder" href="intent:#Intent;action=android.intent.action.VIEW_DOWNLOADS;end">다운로드 폴더 가기</a>
-  <div class="hint">안 열리면 <b>내 파일 → 다운로드</b>에서 "낭만골프.apk"를 누르세요.</div>
+  <a class="folder off" id="folder" href="intent:#Intent;action=android.intent.action.VIEW_DOWNLOADS;end" aria-disabled="true">다운로드 폴더 가기</a>
+  <div class="hint" id="hint">내려받기가 끝나면 눌러서 파일을 열 수 있어요.</div>
 
   <ol>
     <li>위 버튼으로 내려받고, 파일을 엽니다.</li>
@@ -54,5 +57,43 @@
 
   <div class="note">아이폰은 지원하지 않습니다. 가격은 조회 시점의 값이니 예약 전 각 사이트에서 다시 확인해 주세요.</div>
 </main>
+<script>
+  // 내려받기가 끝나면 "다운로드 폴더 가기"를 켠다. (브라우저는 일반 링크의 완료 시점을 알려주지 않아서, 파일을 직접 받아 진행률을 보여준 뒤 저장한다.)
+  var dl = document.getElementById('dl'), folder = document.getElementById('folder'), hint = document.getElementById('hint');
+  var URL_APK = dl.getAttribute('href'), NAME = '낭만골프.apk', label = dl.textContent;
+  function done(msg) {
+    dl.classList.remove('busy'); dl.textContent = '내려받기 완료 ✓ (다시 받기)';
+    folder.classList.remove('off'); folder.classList.add('on'); folder.removeAttribute('aria-disabled');
+    hint.innerHTML = msg || '이제 <b>다운로드 폴더 가기</b>를 누르고 "낭만골프.apk"를 여세요.<br>안 열리면 <b>내 파일 → 다운로드</b>에서 찾으세요.';
+  }
+  dl.addEventListener('click', function (e) {
+    if (!window.fetch || !window.ReadableStream) return; // 오래된 브라우저는 일반 링크로
+    e.preventDefault();
+    dl.classList.add('busy'); dl.textContent = '내려받는 중… 0%';
+    fetch(URL_APK).then(function (res) {
+      if (!res.ok) throw new Error(res.status);
+      var total = +res.headers.get('Content-Length') || 0, got = 0, chunks = [], reader = res.body.getReader();
+      return (function pump() {
+        return reader.read().then(function (r) {
+          if (r.done) return chunks;
+          chunks.push(r.value); got += r.value.length;
+          dl.textContent = '내려받는 중… ' + (total ? Math.min(99, Math.round(got / total * 100)) + '%' : Math.round(got / 1048576) + 'MB');
+          return pump();
+        });
+      })();
+    }).then(function (chunks) {
+      var blob = new Blob(chunks, { type: 'application/vnd.android.package-archive' });
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = NAME;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 60000);
+      done();
+    }).catch(function () {
+      // 직접 받기에 실패하면(카카오톡 내장 브라우저 등) 일반 내려받기로 넘기고, 폴더 버튼은 잠시 뒤에 켠다
+      dl.classList.remove('busy'); dl.textContent = label;
+      location.href = URL_APK;
+      setTimeout(function () { done('내려받기가 시작되지 않으면 우측 상단 메뉴에서 <b>다른 브라우저(크롬)로 열기</b>를 선택하세요.'); }, 4000);
+    });
+  });
+</script>
 </body>
 </html>
