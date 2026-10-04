@@ -62,9 +62,9 @@
   var dl = document.getElementById('dl'), folder = document.getElementById('folder'), hint = document.getElementById('hint');
   var URL_APK = dl.getAttribute('href'), NAME = '낭만골프.apk', label = dl.textContent;
   function done(msg) {
-    dl.classList.remove('busy'); dl.textContent = '내려받기 완료 ✓ (다시 받기)';
+    dl.classList.remove('busy'); dl.textContent = '다시 내려받기';
     folder.classList.remove('off'); folder.classList.add('on'); folder.removeAttribute('aria-disabled');
-    hint.innerHTML = msg || '이제 <b>다운로드 폴더 가기</b>를 누르고 "낭만골프.apk"를 여세요.<br>안 열리면 <b>내 파일 → 다운로드</b>에서 찾으세요.';
+    hint.innerHTML = msg || '저장했다면 <b>다운로드 폴더 가기</b>를 눌러 "낭만골프.apk"를 여세요.<br>안 열리면 <b>내 파일 → 다운로드</b>에서 찾으세요.';
   }
   dl.addEventListener('click', function (e) {
     if (!window.fetch || !window.ReadableStream) return; // 오래된 브라우저는 일반 링크로
@@ -86,7 +86,10 @@
       var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = NAME;
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(function () { URL.revokeObjectURL(a.href); }, 60000);
-      done();
+      // 브라우저가 저장 확인 창(다운로드/취소)을 띄울 수 있다. 파일 저장은 그 창에서 '다운로드'를 눌러야 끝나므로, 바로 '완료'라고 하지 않고 안내한다.
+      dl.classList.add('busy'); dl.textContent = '저장 확인 창에서 "다운로드"를 누르세요';
+      hint.innerHTML = '창이 뜨면 <b>다운로드</b>를 누르세요. 누른 뒤 <b>다운로드 폴더 가기</b>가 켜집니다.';
+      setTimeout(function () { done(); }, 6000);
     }).catch(function () {
       // 직접 받기에 실패하면(카카오톡 내장 브라우저 등) 일반 내려받기로 넘기고, 폴더 버튼은 잠시 뒤에 켠다
       dl.classList.remove('busy'); dl.textContent = label;
