@@ -1,9 +1,9 @@
 {
-  "versionCode": 6,
-  "versionName": "1.5",
+  "versionCode": 7,
+  "versionName": "1.6",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "상세 조건 화살표 위치 개선",
+  "notes": "상세 조건 문구·화살표를 오른쪽에 배치",
   "notice": {
     "id": "",
     "level": "info",
