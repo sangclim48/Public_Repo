@@ -1,9 +1,9 @@
 {
-  "versionCode": 8,
-  "versionName": "1.7",
+  "versionCode": 9,
+  "versionName": "1.8",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "오늘·내일·모레 날짜 버튼, 카톡 카드 공유 개선",
+  "notes": "앱 안에서 바로 내려받아 업데이트",
   "notice": {
     "id": "",
     "level": "info",
