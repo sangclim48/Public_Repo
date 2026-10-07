@@ -1,8 +1,12 @@
 {
-  "versionCode": 2,
-  "versionName": "1.1",
+  "versionCode": 3,
+  "versionName": "1.2",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "",
-  "notice": { "id": "", "level": "info", "text": "" }
+  "notes": "상세 조건 화살표 위치 개선",
+  "notice": {
+    "id": "",
+    "level": "info",
+    "text": ""
+  }
 }
