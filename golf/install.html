@@ -38,8 +38,8 @@
   <p class="sub">골프 티타임 가격 비교 · 근처 식당 찾기</p>
   <a class="dl" id="dl" href="https://sangclim48.github.io/Public_Repo/nangman-golf.apk" download="nangman-golf.apk">앱 내려받기 (안드로이드)</a>
   <div class="size">약 4MB · 버전 1.7</div>
-  <a class="folder" id="folder" href="intent:#Intent;action=android.intent.action.VIEW_DOWNLOADS;end">다운로드 폴더 가기</a>
-  <div class="hint" id="hint">내려받은 뒤 눌러서 파일을 열 수 있어요.</div>
+  <a class="folder" id="folder" href="#how" role="button">내려받은 파일 여는 법</a>
+  <div class="hint" id="hint">파일을 어디서 여는지 모르겠으면 아래 버튼을 누르세요.</div>
 
   <div class="key">
     <b>이미 설치한 분은</b> 먼저 기존 "낭만 골프" 앱을 <b>삭제</b>한 뒤 설치해 주세요. (이번 버전부터 앱 서명이 바뀌어 덮어 설치가 안 됩니다. 이후 업데이트는 덮어 설치돼요.)
@@ -66,18 +66,17 @@
   var dl = document.getElementById('dl'), folder = document.getElementById('folder'), hint = document.getElementById('hint');
   dl.addEventListener('click', function () {
     dl.textContent = '내려받는 중… 확인 창이 뜨면 "다운로드"';
-    hint.innerHTML = '창이 뜨면 <b>다운로드</b>를 누르세요. 잠시 뒤 <b>다운로드 폴더 가기</b>가 켜집니다.';
+    hint.innerHTML = '창이 뜨면 <b>다운로드</b>를 누르세요. 잠시 뒤 <b>내려받은 파일 여는 법</b>이 강조됩니다.';
     setTimeout(function () {
       dl.textContent = '다시 내려받기';
       folder.classList.add('on');
-      hint.innerHTML = '저장했다면 <b>다운로드 폴더 가기</b>를 눌러 "nangman-golf.apk"를 여세요.<br>안 열리면 <b>내 파일 → 다운로드</b>에서 찾으세요.';
+      hint.innerHTML = '저장했다면 <b>크롬 ⋮ → 다운로드</b>(또는 내 파일 → 다운로드)에서 "nangman-golf.apk"를 여세요.';
     }, 5000);
   });
-  // 폴더 버튼은 처음부터 누를 수 있다. 눌러도 폴더가 안 열리는 브라우저(카카오톡 안 등)면 직접 찾는 방법을 알려준다.
-  folder.addEventListener('click', function () {
-    setTimeout(function () {
-      if (!document.hidden) hint.innerHTML = '폴더가 안 열리면 <b>내 파일 → 다운로드</b>에서 "nangman-golf.apk"를 찾아 여세요.<br>카카오톡 안에서 열었다면 <b>크롬</b>에서 이 페이지를 열어 주세요.';
-    }, 1200);
+  // 웹페이지에서는 폰의 다운로드 폴더를 직접 열 수 없다(브라우저가 막는다). 대신 파일 찾는 방법을 펼쳐 보여준다.
+  folder.addEventListener('click', function (e) {
+    e.preventDefault();
+    hint.innerHTML = '<b>① 크롬 오른쪽 위 ⋮ → 다운로드</b>에서 "nangman-golf.apk"를 누르세요.<br><b>② 또는 폰의 내 파일(파일) 앱 → 다운로드</b> 폴더에서 눌러도 됩니다.<br>내려받은 직후 화면 아래에 뜨는 <b>열기</b>를 눌러도 됩니다.<br>카카오톡 안에서 열었다면 <b>크롬</b>에서 이 페이지를 열어 주세요.';
   });
 </script>
 </body>
