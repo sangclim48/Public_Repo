@@ -38,7 +38,7 @@
   <p class="sub">골프 티타임 가격 비교 · 근처 식당 찾기</p>
   <a class="dl" id="dl" href="https://sangclim48.github.io/Public_Repo/nangman-golf.apk" download="nangman-golf.apk">앱 내려받기 (안드로이드)</a>
   <div class="size">약 4MB · 버전 1.7</div>
-  <a class="folder" id="folder" href="intent:#Intent;action=android.intent.action.VIEW_DOWNLOADS;end">다운로드 폴더 가기</a>
+  <a class="folder" id="folder" href="intent:#Intent;action=android.intent.action.VIEW_DOWNLOADS;end">다운로드 폴더 · 파일 열기</a>
   <div class="hint" id="hint">내려받은 뒤 아래 버튼으로 파일을 열 수 있어요.</div>
 
   <div class="key">
@@ -73,11 +73,16 @@
       hint.innerHTML = '저장했다면 <b>다운로드 폴더 가기</b>를 눌러 "nangman-golf.apk"를 여세요.<br>안 열리면 <b>크롬 ⋮ → 다운로드</b> 또는 <b>내 파일 → 다운로드</b>에서 찾으세요.';
     }, 5000);
   });
-  // 폴더 버튼: 먼저 폰의 다운로드 폴더를 열어 본다(카카오톡 등에서는 열린다). 크롬은 이런 링크를 막는 경우가 있어서, 열리지 않으면(페이지가 그대로 보이면) 파일 찾는 방법을 보여준다.
-  folder.addEventListener('click', function () {
-    setTimeout(function () {
-      if (!document.hidden) hint.innerHTML = '크롬에서는 폴더가 바로 안 열릴 수 있어요.<br><b>크롬 오른쪽 위 ⋮ → 다운로드</b>에서 "nangman-golf.apk"를 누르세요.<br>또는 <b>내 파일(파일) 앱 → 다운로드</b> 폴더에서 눌러도 됩니다.';
-    }, 1200);
+  // 폴더 버튼: 카카오톡 안 브라우저에서는 폰의 다운로드 폴더를 연다. 크롬은 이런 링크를 받아주지 않아서, 누르면 바로 파일 찾는 방법을 보여준다.
+  var guide = '<b>① 내려받기가 끝나면 화면 아래 <u>열기</u></b>를 누르세요.<br><b>② 놓쳤다면 크롬 오른쪽 위 ⋮ → 다운로드</b>에서 "nangman-golf.apk"를 누르세요.<br><b>③ 또는 내 파일(파일) 앱 → 다운로드</b> 폴더에서 눌러도 됩니다.';
+  var inKakao = /KAKAOTALK/i.test(navigator.userAgent);
+  folder.addEventListener('click', function (e) {
+    if (inKakao) {
+      setTimeout(function () { if (!document.hidden) hint.innerHTML = guide; }, 1200);
+    } else {
+      e.preventDefault();
+      hint.innerHTML = guide;
+    }
   });
 </script>
 </body>
