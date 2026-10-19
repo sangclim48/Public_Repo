@@ -1,9 +1,9 @@
 {
-  "versionCode": 9,
-  "versionName": "1.8",
+  "versionCode": 10,
+  "versionName": "1.9",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "앱 안에서 바로 내려받아 업데이트",
+  "notes": "홀 수에 P9*2 제거 추가(양도·조인), 9홀 두 번 도는 골프장 이름 정리",
   "notice": {
     "id": "",
     "level": "info",
