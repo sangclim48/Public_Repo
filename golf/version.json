@@ -1,9 +1,9 @@
 {
-  "versionCode": 15,
-  "versionName": "1.14",
+  "versionCode": 16,
+  "versionName": "1.15",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "앱 공유 카드 이미지 세로 절반(2:1)",
+  "notes": "앱 공유 카드 이미지를 더 낮게(4:1)",
   "notice": {
     "id": "",
     "level": "info",
