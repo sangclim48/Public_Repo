@@ -1,9 +1,9 @@
 {
-  "versionCode": 11,
-  "versionName": "1.10",
+  "versionCode": 12,
+  "versionName": "1.11",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "제목 옆 앱 공유 버튼(카톡으로 보내기·링크 복사)",
+  "notes": "앱 공유 카드 이미지 세로 크기 축소",
   "notice": {
     "id": "",
     "level": "info",
