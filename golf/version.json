@@ -1,9 +1,9 @@
 {
-  "versionCode": 16,
-  "versionName": "1.15",
+  "versionCode": 17,
+  "versionName": "1.16",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "앱 공유 카드 이미지를 더 낮게(4:1)",
+  "notes": "앱 내려받은 횟수 확인(사용법 창의 버전을 5번 누르기)",
   "notice": {
     "id": "",
     "level": "info",
