@@ -1,9 +1,9 @@
 {
-  "versionCode": 19,
-  "versionName": "1.18",
+  "versionCode": 20,
+  "versionName": "1.19",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "상하단 고정 줄 높이 축소, 하단 홈 글자 제거, 관리자 모드 표시 개선",
+  "notes": "상단 고정 줄 떨림 수정(fixed 방식)",
   "notice": {
     "id": "",
     "level": "info",
