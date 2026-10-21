@@ -1,9 +1,9 @@
 {
-  "versionCode": 18,
-  "versionName": "1.17",
+  "versionCode": 19,
+  "versionName": "1.18",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "상단 줄 고정, 하단 홈 메뉴, 조회 현황은 관리자 모드에서만 표시",
+  "notes": "상하단 고정 줄 높이 축소, 하단 홈 글자 제거, 관리자 모드 표시 개선",
   "notice": {
     "id": "",
     "level": "info",
