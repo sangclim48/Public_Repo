@@ -1,9 +1,9 @@
 {
-  "versionCode": 24,
-  "versionName": "1.23",
+  "versionCode": 25,
+  "versionName": "1.24",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "거리 표시 오류 수정, 위치를 못 받을 때 이유 표시",
+  "notes": "카카오골프예약 로그인 필요 안내(불필요한 요청 줄임)",
   "notice": {
     "id": "",
     "level": "info",
