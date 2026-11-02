@@ -1,9 +1,9 @@
 {
-  "versionCode": 20,
-  "versionName": "1.19",
+  "versionCode": 21,
+  "versionName": "1.20",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "상단 고정 줄 떨림 수정(fixed 방식)",
+  "notes": "골프장 이름 옆 나침반 버튼(카카오맵에서 위치 보기), 골프장 위치 찾기 정확도 개선",
   "notice": {
     "id": "",
     "level": "info",
