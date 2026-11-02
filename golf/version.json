@@ -1,9 +1,9 @@
 {
-  "versionCode": 27,
-  "versionName": "1.26",
+  "versionCode": 28,
+  "versionName": "1.27",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "골프장 평점은 카카오맵 평점만 표시(없으면 숨김)",
+  "notes": "앱에서 카카오골프 로그인 버튼 추가(로그인하면 카카오골프 가격 조회)",
   "notice": {
     "id": "",
     "level": "info",
