@@ -1,9 +1,9 @@
 {
-  "versionCode": 22,
-  "versionName": "1.21",
+  "versionCode": 23,
+  "versionName": "1.22",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "추이·식당 아이콘 버튼, 내 위치에서 골프장까지 거리 표시(상세 조건에서 켜고 끄기)",
+  "notes": "나침반 아이콘을 다른 아이콘처럼 바깥 동그라미 하나로",
   "notice": {
     "id": "",
     "level": "info",
