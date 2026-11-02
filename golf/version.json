@@ -1,9 +1,9 @@
 {
-  "versionCode": 26,
-  "versionName": "1.25",
+  "versionCode": 27,
+  "versionName": "1.26",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "골프장 평점을 카카오맵에서 가져오기(없으면 기존 평점)",
+  "notes": "골프장 평점은 카카오맵 평점만 표시(없으면 숨김)",
   "notice": {
     "id": "",
     "level": "info",
