@@ -1,9 +1,9 @@
 {
-  "versionCode": 23,
-  "versionName": "1.22",
+  "versionCode": 24,
+  "versionName": "1.23",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "나침반 아이콘을 다른 아이콘처럼 바깥 동그라미 하나로",
+  "notes": "거리 표시 오류 수정, 위치를 못 받을 때 이유 표시",
   "notice": {
     "id": "",
     "level": "info",
