@@ -1,9 +1,9 @@
 {
-  "versionCode": 31,
-  "versionName": "1.30",
+  "versionCode": 32,
+  "versionName": "1.31",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "골프장 이름 앞 체크박스 추가(체크한 골프장 이미지를 한꺼번에 공유)",
+  "notes": "상세 조건 옆 최저가 버튼 추가(골프장마다 최저가 사이트만 보기)",
   "notice": {
     "id": "",
     "level": "info",
