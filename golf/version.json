@@ -1,9 +1,9 @@
 {
-  "versionCode": 30,
-  "versionName": "1.29",
+  "versionCode": 31,
+  "versionName": "1.30",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "골프장 카드 공유 버튼 추가(이미지+설치 링크)",
+  "notes": "골프장 이름 앞 체크박스 추가(체크한 골프장 이미지를 한꺼번에 공유)",
   "notice": {
     "id": "",
     "level": "info",
