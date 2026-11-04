@@ -1,9 +1,9 @@
 {
-  "versionCode": 42,
-  "versionName": "1.41",
+  "versionCode": 43,
+  "versionName": "1.42",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "상단 제목 앞에 앱 아이콘 추가",
+  "notes": "티업엔조이 사이트 추가 (티타임 가격 비교에 포함)",
   "notice": {
     "id": "",
     "level": "info",
