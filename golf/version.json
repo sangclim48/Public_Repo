@@ -1,9 +1,9 @@
 {
-  "versionCode": 38,
-  "versionName": "1.37",
+  "versionCode": 39,
+  "versionName": "1.38",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "검색 뒤에도 그린피 슬라이더를 움직이면 바로 그 범위의 골프장만 표시",
+  "notes": "리스트 표 머리글을 눌러 오름·내림차순 정렬",
   "notice": {
     "id": "",
     "level": "info",
