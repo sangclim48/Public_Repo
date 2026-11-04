@@ -1,9 +1,9 @@
 {
-  "versionCode": 35,
-  "versionName": "1.34",
+  "versionCode": 36,
+  "versionName": "1.35",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "리스트 공유 이미지가 백지로 나오던 문제 수정",
+  "notes": "그린피 범위 슬라이더 추가, 상단 여백 줄임, 최저가·리스트 버튼 높이 줄임",
   "notice": {
     "id": "",
     "level": "info",
