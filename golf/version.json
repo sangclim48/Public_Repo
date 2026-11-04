@@ -1,9 +1,9 @@
 {
-  "versionCode": 29,
-  "versionName": "1.28",
+  "versionCode": 30,
+  "versionName": "1.29",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "v1.27 업데이트 알림이 계속 뜨던 문제 수정(앱에 버전이 잘못 들어갔음)",
+  "notes": "골프장 카드 공유 버튼 추가(이미지+설치 링크)",
   "notice": {
     "id": "",
     "level": "info",
