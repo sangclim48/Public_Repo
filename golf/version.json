@@ -1,9 +1,9 @@
 {
-  "versionCode": 43,
-  "versionName": "1.42",
+  "versionCode": 44,
+  "versionName": "1.43",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "티업엔조이 사이트 추가 (티타임 가격 비교에 포함)",
+  "notes": "티업엔조이 추가를 취소하고 v1.41 내용으로 되돌림",
   "notice": {
     "id": "",
     "level": "info",
