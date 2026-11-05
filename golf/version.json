@@ -1,9 +1,9 @@
 {
-  "versionCode": 44,
-  "versionName": "1.43",
+  "versionCode": 45,
+  "versionName": "1.44",
   "minVersionCode": 0,
   "apkUrl": "https://sangclim48.github.io/Public_Repo/golf/install.html",
-  "notes": "티업엔조이 추가를 취소하고 v1.41 내용으로 되돌림",
+  "notes": "리스트 표의 금액 글씨 옆에 정렬 힌트 화살표 추가",
   "notice": {
     "id": "",
     "level": "info",
